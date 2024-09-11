@@ -1,44 +1,38 @@
 export const userInputs = [
     {
-      id: 1,
+      id: "username",
       label: "Username",
       type: "text",
       placeholder: "john_doe",
     },
     {
-      id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
-    },
-    {
-      id: 3,
+      id: "email",
       label: "Email",
       type: "mail",
       placeholder: "john_doe@gmail.com",
     },
     {
-      id: 4,
+      id: "phone",
       label: "Phone",
       type: "text",
       placeholder: "+1 234 567 89",
     },
     {
-      id: 5,
+      id: "password",
       label: "Password",
       type: "password",
     },
     {
-      id: 6,
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
-    },
-    {
-      id: 7,
+      id: "country",
       label: "Country",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Argentina",
+    },
+    {
+      id: "city",
+      label: "city",
+      type: "text",
+      placeholder: "CDELU",
     },
   ];
   
@@ -72,6 +66,84 @@ export const userInputs = [
       label: "Stock",
       type: "text",
       placeholder: "in stock",
+    },
+  ];
+  
+  export const hotelInputs = [
+    {
+      id: "name",
+      label: "Name",
+      type: "text",
+      placeholder: "Mi hotel",
+    },
+    {
+      id: "type",
+      label: "Type",
+      type: "text",
+      placeholder: "hotel",
+    },
+    {
+      id: "city",
+      label: "City",
+      type: "text",
+      placeholder: "Ciudad",
+    },
+    {
+      id: "address",
+      label: "Address",
+      type: "text",
+      placeholder: "Direccion",
+    },
+    {
+      id: "distance",
+      label: "Distancia",
+      type: "text",
+      placeholder: "500",
+    },
+    {
+      id: "title",
+      label: "Title",
+      type: "text",
+      placeholder: "El mejor hotel",
+    },
+    {
+      id: "desc",
+      label: "Descripcion",
+      type: "text",
+      placeholder: "descripcion",
+    },
+    {
+      id: "cheapestPrice",
+      label: "Price",
+      type: "text",
+      placeholder: "100",
+    },
+  ];
+  
+  export const roomInputs = [
+    {
+      id: "title",
+      label: "Title",
+      type: "text",
+      placeholder: "Titulo",
+    },
+    {
+      id: "desc",
+      label: "Descripcion",
+      type: "text",
+      placeholder: "descripcion",
+    },
+    {
+      id: "price",
+      label: "Price",
+      type: "text",
+      placeholder: "$100",
+    },
+    {
+      id: "maxPeople",
+      label: "Max People",
+      type: "text",
+      placeholder: "2",
     },
   ];
   
