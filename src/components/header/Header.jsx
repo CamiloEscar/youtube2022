@@ -1,10 +1,9 @@
 import {
-  faBed,
+  faFutbol,
   faCalendarDays,
-  faCar,
-  faPerson,
-  faPlane,
-  faTaxi,
+  faUserFriends, // Para representar la formación de equipo
+  faTrophy, // Para el ranking
+  faLocationArrow, // Para la ubicación
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
@@ -58,7 +57,7 @@ const Header = ({ type }) => {
       },
     });
 
-    navigate("/hotels", { state: { destination, dates, options } });
+    navigate("/reservations", { state: { destination, dates, options } });
   };
 
   return (
@@ -70,42 +69,41 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <FontAwesomeIcon icon={faFutbol} />
+            <span>Reserva</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
+            <FontAwesomeIcon icon={faCalendarDays} />
+            <span>Calendario</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
+            <FontAwesomeIcon icon={faUserFriends} />
+            <span>Arma tu equipo</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
+            <FontAwesomeIcon icon={faTrophy} />
+            <span>Ranking</span>
           </div>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+            <FontAwesomeIcon icon={faLocationArrow} />
+            <span>Ubicación</span>
           </div>
         </div>
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? It's Genius.
+              Reserva tu cancha de fútbol 5
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+              ¡Encuentra y reserva tu cancha para jugar fútbol 5 con facilidad!
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <button className="headerBtn">Iniciar sesión / Registrarse</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faBed} className="headerIcon" />
+                <FontAwesomeIcon icon={faFutbol} className="headerIcon" />
                 <input
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="¿Dónde quieres jugar?"
                   className="headerSearchInput"
                   onChange={(e) => setDestination(e.target.value)}
                 />
@@ -115,7 +113,7 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
-                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} hasta ${format(
                   dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}</span>
@@ -131,15 +129,15 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+                <FontAwesomeIcon icon={faUserFriends} className="headerIcon" />
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                >{`${options.adult} adultos · ${options.children} niños`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
-                      <span className="optionText">Adult</span>
+                      <span className="optionText">Adultos</span>
                       <div className="optionCounter">
                         <button
                           disabled={options.adult <= 1}
@@ -160,7 +158,7 @@ const Header = ({ type }) => {
                       </div>
                     </div>
                     <div className="optionItem">
-                      <span className="optionText">Children</span>
+                      <span className="optionText">Niños</span>
                       <div className="optionCounter">
                         <button
                           disabled={options.children <= 0}
@@ -180,33 +178,12 @@ const Header = ({ type }) => {
                         </button>
                       </div>
                     </div>
-                    <div className="optionItem">
-                      <span className="optionText">Room</span>
-                      <div className="optionCounter">
-                        <button
-                          disabled={options.room <= 1}
-                          className="optionCounterButton"
-                          onClick={() => handleOption("room", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="optionCounterNumber">
-                          {options.room}
-                        </span>
-                        <button
-                          className="optionCounterButton"
-                          onClick={() => handleOption("room", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
-                  Search
+                  Buscar
                 </button>
               </div>
             </div>

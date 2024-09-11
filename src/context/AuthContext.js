@@ -53,7 +53,15 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.user));
+    if (state.user) {
+      try {
+        localStorage.setItem("user", JSON.stringify(state.user));
+      } catch (error) {
+        console.error("Error saving user to localStorage", error);
+      }
+    } else {
+      localStorage.removeItem("user");
+    }
   }, [state.user]);
 
   return (
